@@ -205,13 +205,13 @@ export default function Hero() {
           <span className="gradient-text">{siteConfig.name}</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto leading-relaxed h-[3.5rem] reveal reveal-delay-3">
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto leading-relaxed min-h-[3.5rem] reveal reveal-delay-3">
           <TypingText text={siteConfig.tagline} />
         </p>
 
-        <div className="flex gap-3 justify-center pt-6 reveal reveal-delay-4">
+        <div className="flex gap-3 justify-center pt-8 reveal reveal-delay-4">
           <a href="#experience" className={btnPrimary}>
-            View My Work
+            View My Experience
           </a>
           <a href="#contact" className={btnOutline}>
             Get In Touch
