@@ -1,40 +1,38 @@
+import { siteConfig } from "@/lib/data";
+
 export default function About() {
   return (
-    <section id="about" className="py-28 px-4">
-      <div className="max-w-3xl mx-auto space-y-8">
-        <div className="space-y-3 reveal">
-          <p className="text-sm font-medium text-accent tracking-[0.25em] uppercase">
-            About
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-            AI Engineer{" "}
-            <span className="gradient-text">at METRO.digital</span>
+    <section id="about" className="py-32 px-4">
+      <div className="max-w-3xl mx-auto space-y-10">
+        <div className="space-y-4 reveal">
+          <div className="level-badge">LVL 28</div>
+          <h2 className="font-display text-4xl md:text-5xl tracking-wider">
+            <span className="text-primary">AI ENGINEER</span>{" "}
+            <span className="text-muted-foreground">AT METRO.DIGITAL</span>
           </h2>
         </div>
 
-        <div className="space-y-6 text-base leading-relaxed">
-          <p className="text-foreground/90 text-lg font-medium reveal reveal-delay-1">
+        <div className="section-divider reveal reveal-delay-1" />
+
+        <div className="space-y-5 text-base leading-relaxed reveal reveal-delay-2">
+          <p className="text-foreground/90 text-lg font-medium">
             I&apos;m Stefan — an AI Engineer from Brașov, Romania, working in
             METRO.digital&apos;s Agentic AI squad. We build intelligent agents
             that support different parts of the business, with end-to-end
             ownership across the entire stack.
           </p>
 
-          <div className="space-y-4 text-muted-foreground reveal reveal-delay-2">
-            <p className="pull-quote-accent pl-6">
-              My work spans database design, backend services,
-              infrastructure-as-code with Terraform, and everything hosted on
-              Google Cloud Platform. We create specialized chat systems powered
-              by business data intelligence to solve domain-specific problems
-              across the organization.
+          <div className="space-y-4 text-muted-foreground">
+            <p className="system-msg">
+              Work spans database design, backend services, infrastructure-as-code
+              with Terraform, hosted on Google Cloud Platform. Specialized chat
+              systems with business data intelligence.
             </p>
 
-            <p className="pull-quote-accent pl-6">
-              Before moving into AI, I spent four years as a full-stack
-              developer at METRO.digital, where I led the migration of legacy
-              Oracle Forms applications to modern Java + React stacks and
-              transitioned invoice-printing from Oracle Reports to Flying
-              Saucer.
+            <p className="system-msg">
+              Previously: 4 years full-stack at METRO.digital. Led migration of
+              legacy Oracle Forms to Java + React. Transitioned invoice-printing
+              from Oracle Reports to Flying Saucer.
             </p>
           </div>
         </div>

@@ -1,11 +1,6 @@
 import { skills } from "@/lib/data";
 import {
-  Code2,
-  Server,
-  Palette,
-  Cloud,
-  Brain,
-  Users,
+  Code2, Server, Palette, Cloud, Brain, Users,
 } from "lucide-react";
 
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -19,39 +14,33 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-      <div className="max-w-3xl mx-auto space-y-12 relative z-10">
-        <div className="space-y-3 reveal">
-          <p className="text-sm font-medium text-accent tracking-[0.25em] uppercase">
-            Skills
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Technologies{" "}
-            <span className="gradient-text">I work with</span>
+    <section id="skills" className="py-32 px-4 relative">
+      <div className="max-w-3xl mx-auto space-y-12">
+        <div className="space-y-4 reveal">
+          <div className="level-badge">CHARACTER SHEET</div>
+          <h2 className="font-display text-4xl md:text-5xl tracking-wider">
+            <span className="text-primary">SKILL TREE</span>
           </h2>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="section-divider reveal reveal-delay-1" />
+
+        <div className="grid gap-4 sm:grid-cols-2">
           {skills.map((group, i) => (
             <div
               key={group.category}
-              className="skill-card border border-border/40 bg-card/40 backdrop-blur-sm rounded-2xl p-5 reveal"
+              className="stat-card reveal"
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <h3 className="text-sm font-semibold text-foreground/80 flex items-center gap-2 mb-4">
-                <span className="text-accent">
-                  {categoryIcons[group.category] || (
-                    <span className="h-1.5 w-1.5 rounded-full bg-accent inline-block" />
-                  )}
-                </span>
-                {group.category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="stat-label">
+                {categoryIcons[group.category]}
+                {" "}{group.category}
+              </div>
+              <div className="flex flex-wrap gap-2 mt-3">
                 {group.items.map((skill) => (
                   <span
                     key={skill}
-                    className="skill-badge text-xs px-3 py-1.5 rounded-lg border border-border/50 bg-secondary/40 text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-secondary/80 cursor-default"
+                    className="text-xs font-mono px-3 py-1.5 border border-border text-muted-foreground hover:text-primary hover:border-primary transition-colors cursor-default"
                   >
                     {skill}
                   </span>
