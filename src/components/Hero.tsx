@@ -48,7 +48,7 @@ export default function Hero() {
         </p>
 
         <div className="flex gap-3 justify-center pt-6">
-          <a href="#projects" className={btnPrimary}>
+          <a href="#experience" className={btnPrimary}>
             View My Work
           </a>
           <a href="#contact" className={btnOutline}>

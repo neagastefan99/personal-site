@@ -17,51 +17,6 @@ export const skills = [
   { category: "Soft Skills", items: ["Agile (Scrum/Kanban)", "Spoken English", "Cross-team Collaboration"] },
 ];
 
-export const projects = [
-  {
-    name: "HR Application",
-    description: "Full-stack HR management system with employee records, attendance tracking, and reporting.",
-    tech: ["React", "Spring Boot", "SQL"],
-    repo: "https://github.com/NeagaStefan/hr-app",
-    highlights: ["Employee CRUD", "Attendance tracking", "Report generation"],
-  },
-  {
-    name: "Electric Scooter App",
-    description: "Mobile-friendly web app for electric scooter fleet management with real-time tracking.",
-    tech: ["React", "Spring Boot", "REST API"],
-    repo: "https://github.com/NeagaStefan/ElectricScooterAppFrontEnd",
-    highlights: ["Real-time fleet dashboard", "REST API backend", "Location tracking"],
-  },
-  {
-    name: "Library Management",
-    description: "Digital library system with book cataloging, lending, and member management.",
-    tech: ["Java", "Spring", "MySQL"],
-    repo: "https://github.com/NeagaStefan/LibraryApp",
-    highlights: ["Book cataloging", "Lending workflow", "Member management"],
-  },
-  {
-    name: "Finance Tracker",
-    description: "Personal finance app with expense categorization, budget tracking, and Firebase sync.",
-    tech: ["React", "Firebase", "JavaScript"],
-    repo: "https://github.com/NeagaStefan/FinanceAppFireBase",
-    highlights: ["Expense categories", "Firebase real-time sync", "Budget alerts"],
-  },
-  {
-    name: "YouTube Clone",
-    description: "YouTube-style video browsing app built with React hooks and modern patterns.",
-    tech: ["React", "JavaScript", "Hooks"],
-    repo: "https://github.com/NeagaStefan/YouTubeCloneHooks",
-    highlights: ["Custom hooks", "Video grid layout", "Responsive design"],
-  },
-  {
-    name: "Python CV Maker",
-    description: "Automated CV/resume generator that produces styled PDFs from structured data.",
-    tech: ["Python"],
-    repo: "https://github.com/NeagaStefan/python-CV_maker",
-    highlights: ["PDF generation", "Template system", "CLI interface"],
-  },
-];
-
 export const experience = [
   {
     role: "Full Stack Developer",
@@ -97,7 +52,6 @@ export const education = [
 export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
