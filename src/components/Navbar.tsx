@@ -14,12 +14,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border/50 z-50">
+    <nav className="fixed top-0 w-full bg-black/90 backdrop-blur-md border-b border-border/50 z-50">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="text-lg font-bold tracking-tight transition-colors"
-          style={{ color: "oklch(0.55 0.22 275)" }}
+          className="text-xl font-extrabold tracking-tight transition-colors"
+          style={{ color: "#fff" }}
         >
           {siteConfig.name}
         </a>
