@@ -7,30 +7,29 @@ export default function About() {
             About
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
-            Full-stack developer{" "}
+            AI Engineer{" "}
             <span className="gradient-text">at METRO.digital</span>
           </h2>
         </div>
 
         <div className="space-y-5 text-base text-muted-foreground leading-relaxed">
           <p>
-            I&apos;m Stefan — a full-stack developer from Brașov, Romania, currently
-            building enterprise applications at METRO.digital. I specialize in
-            Java, Spring, React, and Google Cloud Platform, with a focus on
-            modernizing legacy systems and delivering scalable, cloud-native
-            solutions.
+            I&apos;m Stefan — an AI Engineer from Brașov, Romania, working in
+            METRO.digital&apos;s Agentic AI squad. We build intelligent agents that
+            support different parts of the business, with end-to-end ownership
+            across the entire stack.
           </p>
           <p>
-            My proudest achievement: leading the migration of a critical
-            application from Oracle Forms to a modern Java + React stack, along
-            with transitioning invoice-printing from Oracle Reports to Flying
-            Saucer. I thrive at the intersection of backend architecture and
-            clean frontend delivery.
+            My work spans database design, backend services, infrastructure-as-code
+            with Terraform, and everything hosted on Google Cloud Platform. We
+            create specialized chat systems powered by business data intelligence
+            to solve domain-specific problems across the organization.
           </p>
           <p>
-            When I&apos;m not shipping code, I&apos;m building side projects — from HR
-            systems to scooter fleet dashboards — exploring new technologies,
-            and pushing my craft forward.
+            Before moving into AI, I spent four years as a full-stack developer at
+            METRO.digital, where I led the migration of legacy Oracle Forms
+            applications to modern Java + React stacks and transitioned
+            invoice-printing from Oracle Reports to Flying Saucer.
           </p>
         </div>
       </div>
