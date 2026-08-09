@@ -1,16 +1,18 @@
 export default function About() {
   return (
-    <section id="about" className="py-24 px-4">
+    <section id="about" className="py-28 px-4">
       <div className="max-w-3xl mx-auto space-y-8">
-        <div className="space-y-2">
-          <p className="text-sm font-mono text-accent tracking-widest uppercase">
+        <div className="space-y-3">
+          <p className="text-sm font-mono text-accent tracking-[0.2em] uppercase">
             About
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            Full-stack developer at METRO.digital
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+            Full-stack developer{" "}
+            <span className="gradient-text">at METRO.digital</span>
           </h2>
         </div>
-        <div className="space-y-4 text-muted-foreground leading-relaxed">
+
+        <div className="space-y-5 text-base text-muted-foreground leading-relaxed">
           <p>
             I&apos;m Stefan — a full-stack developer from Brașov, Romania, currently
             building enterprise applications at METRO.digital. I specialize in
