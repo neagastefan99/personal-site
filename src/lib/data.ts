@@ -11,11 +11,11 @@ export const siteConfig = {
 
 export const skills = [
   { category: "Languages", items: ["Java", "Python", "TypeScript", "JavaScript", "SQL", "HTML/CSS"] },
-  { category: "Backend", items: ["Spring Framework", "REST APIs", "Oracle DB", "PostgreSQL", "Node.js"] },
+  { category: "Backend", items: ["Spring Framework", "REST APIs", "Oracle DB", "PostgreSQL"] },
   { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS"] },
   { category: "Cloud & DevOps", items: ["Google Cloud Platform", "Terraform", "Docker", "Git", "GitHub", "CI/CD"] },
   { category: "AI & Agents", items: ["Agentic AI", "LLM Integration", "RAG", "Chat Systems", "Data Intelligence"] },
-  { category: "Soft Skills", items: ["Agile (Scrum/Kanban)", "Spoken English", "Cross-team Collaboration"] },
+  { category: "Soft Skills", items: ["Agile (Scrum/Kanban)", "Cross-team Collaboration"] },
 ];
 
 export const experience = [
