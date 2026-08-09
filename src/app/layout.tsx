@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import RevealObserver from "@/components/RevealObserver";
 import "./globals.css";
 import { siteConfig } from "@/lib/data";
 
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <RevealObserver />
         <Navbar />
         <main className="flex-1">{children}</main>
       </body>

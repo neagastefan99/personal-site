@@ -1,32 +1,9 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { experience, education } from "@/lib/data";
 
 export default function Experience() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const reveals = sectionRef.current?.querySelectorAll(".reveal");
-    reveals?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={sectionRef} id="experience" className="py-28 px-4 relative">
+    <section id="experience" className="py-28 px-4 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
       <div className="max-w-3xl mx-auto space-y-12 relative z-10">
         <div className="space-y-3 reveal">
@@ -39,7 +16,6 @@ export default function Experience() {
           </h2>
         </div>
 
-        {/* Timeline */}
         <div className="timeline">
           {experience.map((exp, i) => (
             <div
@@ -82,7 +58,6 @@ export default function Experience() {
           ))}
         </div>
 
-        {/* Education */}
         <div className="space-y-6 pt-4 reveal">
           <h3 className="text-xl font-bold tracking-tight">
             <span className="gradient-text">Education</span>

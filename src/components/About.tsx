@@ -1,30 +1,6 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
 export default function About() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        }
-      },
-      { threshold: 0.15 }
-    );
-
-    const reveals = sectionRef.current?.querySelectorAll(".reveal");
-    reveals?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section ref={sectionRef} id="about" className="py-28 px-4">
+    <section id="about" className="py-28 px-4">
       <div className="max-w-3xl mx-auto space-y-8">
         <div className="space-y-3 reveal">
           <p className="text-sm font-medium text-accent tracking-[0.25em] uppercase">
