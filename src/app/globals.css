@@ -85,17 +85,21 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
-    /* Stone wall texture + torchlight ambient glow */
+    /* ── Deep dark atmosphere with dramatic rim lighting ── */
     background-image:
-      /* ── Torchlight: warm glow from top-center ── */
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 107, 43, 0.10) 0%, transparent 70%),
-      /* ── Torchlight: warm glow from bottom edges ── */
-      radial-gradient(ellipse 40% 30% at 15% 90%, rgba(255, 107, 43, 0.06) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 30% at 85% 90%, rgba(255, 107, 43, 0.06) 0%, transparent 60%),
-      /* ── Ambient cyan glow (rare magical light) ── */
-      radial-gradient(ellipse 30% 40% at 80% 20%, rgba(57, 255, 20, 0.03) 0%, transparent 60%),
-      /* ── Masonry stone blocks (SVG pattern) ── */
-      url(/stone.svg);
+      /* Central warm core glow */
+      radial-gradient(ellipse 60% 50% at 50% 40%, rgba(255, 107, 43, 0.07) 0%, transparent 60%),
+      /* Strong top-center torchlight */
+      radial-gradient(ellipse 100% 50% at 50% 0%, rgba(255, 107, 43, 0.12) 0%, transparent 50%),
+      /* Bottom corner torch sconces */
+      radial-gradient(circle 300px at 10% 85%, rgba(255, 107, 43, 0.08) 0%, transparent 70%),
+      radial-gradient(circle 300px at 90% 85%, rgba(255, 107, 43, 0.08) 0%, transparent 70%),
+      /* Magical cyan rift — upper right */
+      radial-gradient(ellipse 25% 35% at 75% 15%, rgba(57, 255, 20, 0.04) 0%, transparent 60%),
+      /* Purple void — upper left */
+      radial-gradient(ellipse 20% 30% at 20% 10%, rgba(123, 45, 142, 0.05) 0%, transparent 60%),
+      /* Deep base */
+      linear-gradient(170deg, #0F0C0A 0%, #0D0B0A 30%, #0A0807 70%, #080605 100%);
     background-attachment: fixed;
   }
   html {
