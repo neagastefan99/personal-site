@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: "Building AI agents that solve real business problems — full-stack, from database to deployment.",
   location: "Brașov, Romania",
   email: "neagastfean@gmail.com",
-  github: "https://github.com/NeagaStefan",
+  github: "https://github.com/neagastefan99",
   linkedin: "https://www.linkedin.com/in/stefan-neaga-21452b197",
   resumeUrl: "/resume.pdf",
 };

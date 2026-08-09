@@ -14,10 +14,13 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border z-50">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md border-b border-border/50 z-50">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-        <a href="#" className="text-lg font-bold tracking-tight text-primary">
-          {siteConfig.name.split(" ")[0]}.
+        <a
+          href="#"
+          className="text-lg font-bold tracking-tight gradient-text"
+        >
+          {siteConfig.name}
         </a>
         <div className="hidden md:flex gap-6">
           {navLinks.map((link) => (
