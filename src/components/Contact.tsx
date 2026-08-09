@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { Mail, ExternalLink, Globe, ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/data";
@@ -13,23 +16,43 @@ const btnOutline = cn(
 );
 
 export default function Contact() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    const reveals = sectionRef.current?.querySelectorAll(".reveal");
+    reveals?.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="contact" className="py-28 px-4">
+    <section ref={sectionRef} id="contact" className="py-28 px-4">
       <div className="max-w-3xl mx-auto text-center space-y-10">
-        <div className="space-y-3">
-          <p className="text-sm font-mono text-accent tracking-[0.2em] uppercase">
+        <div className="space-y-3 reveal">
+          <p className="text-sm font-medium text-accent tracking-[0.25em] uppercase">
             Contact
           </p>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Let&apos;s{" "}
             <span className="gradient-text">work together</span>
           </h2>
-          <p className="text-muted-foreground max-w-md mx-auto leading-relaxed">
+          <p className="text-muted-foreground max-w-md mx-auto leading-relaxed reveal reveal-delay-1">
             I&apos;m always open to interesting projects and collaborations.
             Drop me a line.
           </p>
         </div>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center reveal reveal-delay-2">
           <a href={`mailto:${siteConfig.email}`} className={btnPrimary}>
             <Mail className="h-4 w-4" />
             {siteConfig.email}
@@ -54,7 +77,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <footer className="pt-16 mt-8 border-t border-border/40">
+        <footer className="pt-16 mt-8 border-t border-border/40 reveal reveal-delay-3">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <p>
               &copy; {new Date().getFullYear()} {siteConfig.name}

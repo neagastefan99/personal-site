@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ExternalLink, Globe, Mail, MapPin } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/data";
@@ -15,6 +18,129 @@ const btnOutline = cn(
 const iconLink =
   "p-2 rounded-full border border-border/40 bg-background/30 backdrop-blur-sm text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all";
 
+function ParticleCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let animId: number;
+    const particles: { x: number; y: number; vx: number; vy: number; r: number }[] = [];
+    const count = 60;
+
+    function resize() {
+      if (!canvas) return;
+      canvas.width = canvas.offsetWidth * devicePixelRatio;
+      canvas.height = canvas.offsetHeight * devicePixelRatio;
+      ctx!.scale(devicePixelRatio, devicePixelRatio);
+    }
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    // Init particles
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * canvas.offsetWidth,
+        y: Math.random() * canvas.offsetHeight,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        r: Math.random() * 1.5 + 0.5,
+      });
+    }
+
+    function draw() {
+      if (!ctx || !canvas) return;
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Draw connections
+      ctx.strokeStyle = "oklch(0.55 0.22 275 / 10%)";
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw particles
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = "oklch(0.55 0.22 275 / 40%)";
+        ctx.fill();
+      }
+
+      // Move
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+      }
+
+      animId = requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="particle-canvas"
+      aria-hidden="true"
+    />
+  );
+}
+
+function TypingText({ text }: { text: string }) {
+  const [displayed, setDisplayed] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    let i = 0;
+    setDisplayed("");
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        setDisplayed(text.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(interval);
+        // Keep cursor blinking after typing finishes
+      }
+    }, 50);
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return (
+    <span>
+      {displayed}
+      <span className={displayed.length === text.length ? "typing-cursor" : ""}>
+        {displayed.length < text.length ? "|" : ""}
+      </span>
+    </span>
+  );
+}
+
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 pt-16 relative overflow-hidden">
@@ -28,26 +154,29 @@ export default function Hero() {
         style={{ background: "oklch(0.78 0.14 195)" }}
       />
 
-      <div className="max-w-3xl text-center space-y-6 relative z-10">
+      {/* Particle network */}
+      <ParticleCanvas />
+
+      <div className="max-w-3xl text-center space-y-6 relative z-10 px-4">
         {/* Location badge */}
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm text-xs text-muted-foreground">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm text-xs text-muted-foreground reveal">
           <MapPin className="h-3 w-3 text-accent" />
           {siteConfig.location}
         </div>
 
-        <p className="text-sm font-mono text-accent tracking-[0.2em] uppercase">
+        <p className="text-sm font-medium text-accent tracking-[0.25em] uppercase reveal reveal-delay-1">
           Hello, I&apos;m
         </p>
 
-        <h1 className="text-6xl md:text-8xl font-bold tracking-tight leading-none">
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tight leading-none reveal reveal-delay-2">
           <span className="gradient-text">{siteConfig.name}</span>
         </h1>
 
-        <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
-          {siteConfig.tagline}
+        <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mx-auto leading-relaxed h-[3.5rem] reveal reveal-delay-3">
+          <TypingText text={siteConfig.tagline} />
         </p>
 
-        <div className="flex gap-3 justify-center pt-6">
+        <div className="flex gap-3 justify-center pt-6 reveal reveal-delay-4">
           <a href="#experience" className={btnPrimary}>
             View My Work
           </a>
