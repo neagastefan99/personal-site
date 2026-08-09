@@ -18,7 +18,7 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         <a
           href="#"
-          className="text-lg font-bold tracking-tight text-primary hover:text-accent transition-colors"
+          className="text-lg font-bold tracking-tight text-[oklch(0.55_0.22_275)] hover:text-[oklch(0.78_0.14_195)] transition-colors"
         >
           {siteConfig.name}
         </a>
