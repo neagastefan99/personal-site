@@ -88,30 +88,14 @@
     /* Stone wall texture + torchlight ambient glow */
     background-image:
       /* ── Torchlight: warm glow from top-center ── */
-      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 107, 43, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 107, 43, 0.10) 0%, transparent 70%),
       /* ── Torchlight: warm glow from bottom edges ── */
-      radial-gradient(ellipse 40% 30% at 15% 90%, rgba(255, 107, 43, 0.05) 0%, transparent 60%),
-      radial-gradient(ellipse 40% 30% at 85% 90%, rgba(255, 107, 43, 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 15% 90%, rgba(255, 107, 43, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 85% 90%, rgba(255, 107, 43, 0.06) 0%, transparent 60%),
       /* ── Ambient cyan glow (rare magical light) ── */
       radial-gradient(ellipse 30% 40% at 80% 20%, rgba(57, 255, 20, 0.03) 0%, transparent 60%),
-      /* ── Stone block horizontal mortar lines ── */
-      repeating-linear-gradient(
-        to bottom,
-        transparent,
-        transparent 47px,
-        rgba(255, 107, 43, 0.04) 47px,
-        rgba(255, 107, 43, 0.04) 48px
-      ),
-      /* ── Stone block pattern: staggered vertical joints ── */
-      repeating-linear-gradient(
-        to right,
-        transparent,
-        transparent 95px,
-        rgba(255, 107, 43, 0.04) 95px,
-        rgba(255, 107, 43, 0.04) 96px
-      ),
-      /* ── Base dark stone color ── */
-      linear-gradient(180deg, #0D0B0A 0%, #100E0C 50%, #0A0908 100%);
+      /* ── Masonry stone blocks (SVG pattern) ── */
+      url(/stone.svg);
     background-attachment: fixed;
   }
   html {
