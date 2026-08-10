@@ -67,5 +67,33 @@ export const navLinks = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },
+];
+
+export const projects = [
+  {
+    title: "Kindle Deals Bot — SFF",
+    description:
+      "Daily cron bot that scrapes Amazon Kindle deals for Science Fiction & Fantasy books. Dual API+HTML scraping with curl_cffi Chrome impersonation, genre/price filtering, author tracking, and Telegram delivery. Zero LLM cost (no_agent).",
+    tech: ["Python", "curl_cffi", "BeautifulSoup", "Hermes Cron", "Telegram API"],
+    url: "https://github.com/neagastefan99/kindle-deals-bot",
+    stars: null,
+  },
+  {
+    title: "Kindle Deals Bot — Non-Fiction",
+    description:
+      "Sister bot for non-fiction Kindle deals: science, history, and philosophy. Uses negative keyword filtering to exclude fiction, scans multiple Amazon categories, and delivers formatted reports with cover images.",
+    tech: ["Python", "curl_cffi", "BeautifulSoup", "Hermes Cron", "Telegram API"],
+    url: "https://github.com/neagastefan99/kindle-deals-nonfiction",
+    stars: null,
+  },
+  {
+    title: "Personal Site",
+    description:
+      "Dungeon Crawler Carl-inspired portfolio site. Next.js 16 + Tailwind v4 + shadcn/ui with RPG game UI elements, ember particles, scanlines, and achievement banners.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    url: "https://github.com/neagastefan99/personal-site",
+    stars: null,
+  },
 ];
