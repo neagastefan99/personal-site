@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navLinks, siteConfig } from "@/lib/data";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const btnGhost = cn(
   "inline-flex shrink-0 items-center justify-center size-8 font-medium transition-all",
@@ -22,7 +23,7 @@ export default function Navbar() {
         >
           {siteConfig.name}
         </a>
-        <div className="hidden md:flex gap-8">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -32,14 +33,18 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <ThemeToggle />
         </div>
-        <button
-          className={cn(btnGhost, "md:hidden")}
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            className={cn(btnGhost)}
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
       {open && (
         <div className="md:hidden border-t-2 border-border bg-background">

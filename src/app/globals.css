@@ -79,6 +79,36 @@
   --sidebar-ring: #FF6B2B;
 }
 
+/* ── Light mode — parchment dungeon aesthetic ── */
+.light {
+  --primary: #E85D1A;
+  --primary-foreground: #FFF8F0;
+  --background: #F5F0E8;
+  --foreground: #1A1612;
+  --card: #EDE4D6;
+  --card-foreground: #1A1612;
+  --popover: #FFF8F0;
+  --popover-foreground: #1A1612;
+  --secondary: #E0D5C3;
+  --secondary-foreground: #1A1612;
+  --muted: #D5C8B3;
+  --muted-foreground: #6B5E4E;
+  --accent: #2D8F1E;
+  --accent-foreground: #FFF8F0;
+  --destructive: #CC2222;
+  --border: #C4B59A;
+  --input: #C4B59A;
+  --ring: #E85D1A;
+  --sidebar: #EDE4D6;
+  --sidebar-foreground: #1A1612;
+  --sidebar-primary: #E85D1A;
+  --sidebar-primary-foreground: #FFF8F0;
+  --sidebar-accent: #E0D5C3;
+  --sidebar-accent-foreground: #1A1612;
+  --sidebar-border: #C4B59A;
+  --sidebar-ring: #E85D1A;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -105,6 +135,14 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+  }
+  
+  /* Light mode body bg override */
+  .light body {
+    background-image:
+      radial-gradient(ellipse 60% 50% at 50% 30%, rgba(232, 93, 26, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 100% 30% at 50% 0%, rgba(232, 93, 26, 0.1) 0%, transparent 50%),
+      linear-gradient(170deg, #F5F0E8 0%, #EDE4D6 50%, #E8DCC8 100%);
   }
 }
 
