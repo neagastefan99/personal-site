@@ -34,7 +34,7 @@ export default function ThemeToggle() {
     setAchievement(msg);
 
     // Auto-dismiss after 3s
-    setTimeout(() => setAchievement(null), 3000);
+    setTimeout(() => setAchievement(null), 5000);
   }, [theme]);
 
   return (
