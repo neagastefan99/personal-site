@@ -3,12 +3,20 @@
 import { useState, useEffect, useCallback } from "react";
 import { Sun, Moon } from "lucide-react";
 
-const ACHIEVEMENTS = [
-  "WELCOME TO THE LIGHT — You've escaped the dungeon... for now.",
-  "SUNLIGHT SENSITIVITY — The dark beckons. It always does.",
-  "FLASHLIGHT BATTERIES — Found some AA's in a loot crate.",
-  "NEW ACHIEVEMENT! — You have unlocked: Vitamin D Deficiency Reversal!",
-  "THE SURFACE — You heard there was a sky up here. Confirmed.",
+const DARK_ACHIEVEMENTS = [
+  "INTO THE DUNGEON — The shadows welcome you back.",
+  "EMBRACE THE DARK — You never really left, did you?",
+  "NEW ACHIEVEMENT! — Torch extinguished. You'll need your night vision now.",
+  "THE ABYSS — It's not staring back. It's smiling.",
+  "NEW ACHIEVEMENT! — You have entered: The Crawl.",
+];
+
+const LIGHT_ACHIEVEMENTS = [
+  "ESCAPED THE DUNGEON — Fresh air. Weird flex, but okay.",
+  "SUNLIGHT SENSITIVITY — -2 DEX for the next 10 minutes.",
+  "NEW ACHIEVEMENT! — You unlocked: Vitamin D Synthesis!",
+  "THE SURFACE — The locals call this 'outside'. Strange place.",
+  "TORCHLIT — Wait, that's the actual sun. Impressive graphics.",
 ];
 
 export default function ThemeToggle() {
@@ -30,7 +38,8 @@ export default function ThemeToggle() {
     document.documentElement.classList.toggle("light", next === "light");
 
     // Trigger achievement
-    const msg = ACHIEVEMENTS[Math.floor(Math.random() * ACHIEVEMENTS.length)];
+    const list = next === "dark" ? DARK_ACHIEVEMENTS : LIGHT_ACHIEVEMENTS;
+    const msg = list[Math.floor(Math.random() * list.length)];
     setAchievement(msg);
 
     // Auto-dismiss after 3s
